@@ -12,6 +12,15 @@
     <i>By {{ post.user.first_name }} {{post.user.last_name}} on {{ post.created_at }}</i>
 </div>
 
+{% if post.tags %}
+<p>
+  <b>Tags:</b>
+  {% for tag in post.tags %}
+  <a href="/tags/{{ tag.id }}"><i style="color:blue;" class="badge badge-info">{{ tag.name }}</i></a>
+  {% endfor %}
+</p>
+{% endif %}
+
 <form>
     <button class="btn btn-outline-primary"
             formmethod="GET"
